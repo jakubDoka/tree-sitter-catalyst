@@ -184,7 +184,13 @@ module.exports = grammar({
       $.match,
       $.dot_expr,
       $.struct_ctor,
+      $.deref,
+      $.ref,
     ),
+
+    deref: $ => seq("*", $._unit_expr),
+    
+    ref: $ => seq("^", optional($._mutability), $._unit_expr),
 
     struct_ctor: $ => seq(optional($.path), "\\", list($, $.struct_ctor_field, "{", ",", "}")),
 

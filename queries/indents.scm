@@ -12,7 +12,7 @@
 ] @outdent
 
 (arrow_block
-  epxr: (_) @indent
+  expr: (_) @indent
   (#not-same-line? @indent @expr-start)
   (#set! "scope" "all")
 )

@@ -32,6 +32,10 @@
             "named": true
           },
           {
+            "type": "deref",
+            "named": true
+          },
+          {
             "type": "dot_expr",
             "named": true
           },
@@ -61,6 +65,10 @@
           },
           {
             "type": "path",
+            "named": true
+          },
+          {
+            "type": "ref",
             "named": true
           },
           {
@@ -112,6 +120,10 @@
           "named": true
         },
         {
+          "type": "deref",
+          "named": true
+        },
+        {
           "type": "dot_expr",
           "named": true
         },
@@ -145,6 +157,10 @@
         },
         {
           "type": "path",
+          "named": true
+        },
+        {
+          "type": "ref",
           "named": true
         },
         {
@@ -214,6 +230,10 @@
           "named": true
         },
         {
+          "type": "deref",
+          "named": true
+        },
+        {
           "type": "dot_expr",
           "named": true
         },
@@ -247,6 +267,10 @@
         },
         {
           "type": "path",
+          "named": true
+        },
+        {
+          "type": "ref",
           "named": true
         },
         {
@@ -308,6 +332,10 @@
           "named": true
         },
         {
+          "type": "deref",
+          "named": true
+        },
+        {
           "type": "dot_expr",
           "named": true
         },
@@ -341,6 +369,10 @@
         },
         {
           "type": "path",
+          "named": true
+        },
+        {
+          "type": "ref",
           "named": true
         },
         {
@@ -391,6 +423,10 @@
           "named": true
         },
         {
+          "type": "deref",
+          "named": true
+        },
+        {
           "type": "dot_expr",
           "named": true
         },
@@ -427,6 +463,10 @@
           "named": true
         },
         {
+          "type": "ref",
+          "named": true
+        },
+        {
           "type": "return",
           "named": true
         },
@@ -455,6 +495,89 @@
       "types": [
         {
           "type": "label",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "deref",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "bool",
+          "named": true
+        },
+        {
+          "type": "break_",
+          "named": true
+        },
+        {
+          "type": "call",
+          "named": true
+        },
+        {
+          "type": "char",
+          "named": true
+        },
+        {
+          "type": "continue_",
+          "named": true
+        },
+        {
+          "type": "deref",
+          "named": true
+        },
+        {
+          "type": "dot_expr",
+          "named": true
+        },
+        {
+          "type": "if_",
+          "named": true
+        },
+        {
+          "type": "int",
+          "named": true
+        },
+        {
+          "type": "let_",
+          "named": true
+        },
+        {
+          "type": "loop",
+          "named": true
+        },
+        {
+          "type": "match",
+          "named": true
+        },
+        {
+          "type": "path",
+          "named": true
+        },
+        {
+          "type": "ref",
+          "named": true
+        },
+        {
+          "type": "return",
+          "named": true
+        },
+        {
+          "type": "str",
+          "named": true
+        },
+        {
+          "type": "struct_ctor",
           "named": true
         }
       ]
@@ -504,6 +627,10 @@
           "named": true
         },
         {
+          "type": "deref",
+          "named": true
+        },
+        {
           "type": "dot_expr",
           "named": true
         },
@@ -529,6 +656,10 @@
         },
         {
           "type": "path",
+          "named": true
+        },
+        {
+          "type": "ref",
           "named": true
         },
         {
@@ -739,6 +870,10 @@
           "named": true
         },
         {
+          "type": "deref",
+          "named": true
+        },
+        {
           "type": "dot_expr",
           "named": true
         },
@@ -768,6 +903,10 @@
         },
         {
           "type": "path",
+          "named": true
+        },
+        {
+          "type": "ref",
           "named": true
         },
         {
@@ -910,6 +1049,10 @@
           "named": true
         },
         {
+          "type": "deref",
+          "named": true
+        },
+        {
           "type": "dot_expr",
           "named": true
         },
@@ -943,6 +1086,10 @@
         },
         {
           "type": "path",
+          "named": true
+        },
+        {
+          "type": "ref",
           "named": true
         },
         {
@@ -997,6 +1144,10 @@
           "named": true
         },
         {
+          "type": "deref",
+          "named": true
+        },
+        {
           "type": "dot_expr",
           "named": true
         },
@@ -1026,6 +1177,10 @@
         },
         {
           "type": "path",
+          "named": true
+        },
+        {
+          "type": "ref",
           "named": true
         },
         {
@@ -1076,6 +1231,10 @@
           "named": true
         },
         {
+          "type": "deref",
+          "named": true
+        },
+        {
           "type": "dot_expr",
           "named": true
         },
@@ -1113,6 +1272,10 @@
         },
         {
           "type": "path",
+          "named": true
+        },
+        {
+          "type": "ref",
           "named": true
         },
         {
@@ -1187,6 +1350,10 @@
           "named": true
         },
         {
+          "type": "deref",
+          "named": true
+        },
+        {
           "type": "dot_expr",
           "named": true
         },
@@ -1216,6 +1383,10 @@
         },
         {
           "type": "path",
+          "named": true
+        },
+        {
+          "type": "ref",
           "named": true
         },
         {
@@ -1366,6 +1537,89 @@
     }
   },
   {
+    "type": "ref",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "bool",
+          "named": true
+        },
+        {
+          "type": "break_",
+          "named": true
+        },
+        {
+          "type": "call",
+          "named": true
+        },
+        {
+          "type": "char",
+          "named": true
+        },
+        {
+          "type": "continue_",
+          "named": true
+        },
+        {
+          "type": "deref",
+          "named": true
+        },
+        {
+          "type": "dot_expr",
+          "named": true
+        },
+        {
+          "type": "if_",
+          "named": true
+        },
+        {
+          "type": "int",
+          "named": true
+        },
+        {
+          "type": "let_",
+          "named": true
+        },
+        {
+          "type": "loop",
+          "named": true
+        },
+        {
+          "type": "match",
+          "named": true
+        },
+        {
+          "type": "path",
+          "named": true
+        },
+        {
+          "type": "ref",
+          "named": true
+        },
+        {
+          "type": "return",
+          "named": true
+        },
+        {
+          "type": "str",
+          "named": true
+        },
+        {
+          "type": "struct_ctor",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "return",
     "named": true,
     "fields": {},
@@ -1398,6 +1652,10 @@
           "named": true
         },
         {
+          "type": "deref",
+          "named": true
+        },
+        {
           "type": "dot_expr",
           "named": true
         },
@@ -1427,6 +1685,10 @@
         },
         {
           "type": "path",
+          "named": true
+        },
+        {
+          "type": "ref",
           "named": true
         },
         {
@@ -1719,6 +1981,10 @@
           "named": true
         },
         {
+          "type": "deref",
+          "named": true
+        },
+        {
           "type": "dot_expr",
           "named": true
         },
@@ -1752,6 +2018,10 @@
         },
         {
           "type": "path",
+          "named": true
+        },
+        {
+          "type": "ref",
           "named": true
         },
         {
