@@ -1,3 +1,4 @@
+
 (
   (type (path (name) @type))
   (#match? @type "[A-Z][a-z0-9]*")
@@ -16,7 +17,6 @@
 [
   (call name: (path (name) @function))
 ]
-
 
 (enum_pat tag: (name) @tag)
 
