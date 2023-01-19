@@ -172,7 +172,10 @@ module.exports = grammar({
       $.block,
       $.path,
       $.match,
+      $.dot_expr,
     ),
+
+    dot_expr: $ => seq($._unit_expr, ".", field("name", $.path)),
 
     match: $ => seq("match", $._expr, list($, $.match_arm, "{", $.new_line, "}")),
     
