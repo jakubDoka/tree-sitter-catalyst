@@ -308,7 +308,7 @@
               "members": [
                 {
                   "type": "SYMBOL",
-                  "name": "path"
+                  "name": "spec_expr"
                 },
                 {
                   "type": "STRING",
@@ -1306,7 +1306,7 @@
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "path"
+                  "name": "spec_expr"
                 },
                 {
                   "type": "REPEAT",
@@ -1319,7 +1319,7 @@
                       },
                       {
                         "type": "SYMBOL",
-                        "name": "path"
+                        "name": "spec_expr"
                       }
                     ]
                   }
@@ -1622,6 +1622,10 @@
           "name": "tuple"
         }
       ]
+    },
+    "spec_expr": {
+      "type": "SYMBOL",
+      "name": "path"
     },
     "ptr": {
       "type": "SEQ",

@@ -687,8 +687,9 @@ impl [T] Drop for Vec\[T] {
     (generics
       (generic_param
         (name)))
-    (path
-      (name))
+    (spec_expr
+      (path
+        (name)))
     (type
       (path
         (name)

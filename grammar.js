@@ -41,7 +41,7 @@ module.exports = grammar({
       optional($.vis), "impl", optional($.generics),
       choice(
         $.type,
-        seq($.path, "for", $.type),
+        seq($.spec_expr, "for", $.type),
       ),
       list($, $.fn, "{", $.new_line, "}"),
     ),
@@ -97,7 +97,7 @@ module.exports = grammar({
 
     sig_args: $ => list($, $.sig_arg, '(', ',', ')'),
 
-    generic_param: $ => seq($.name, optional(seq(':', $.path, repeat(seq('+', $.path))))),
+    generic_param: $ => seq($.name, optional(seq(':', $.spec_expr, repeat(seq('+', $.spec_expr))))),
 
     sig_arg: $ => seq($.pat, ':', $.type),
 
@@ -132,6 +132,8 @@ module.exports = grammar({
       $.ptr,
       $.tuple,
     ),
+
+    spec_expr: $ => $.path,
 
     ptr: $ => seq('^', optional($._mutability), $.type),
 
@@ -217,7 +219,7 @@ module.exports = grammar({
     vis: $ => choice('pub', 'priv'),
 
     new_line: $ => prec.right(0, repeat1(choice('\n', ';'))),
-   
+
     label: $ => /'[a-zA-Z0-9_]+/,
     name: $ => /[a-zA-Z_][a-zA-Z0-9_]*/,
     marcro: $ => /[a-zA-Z_][a-zA-Z0-9_]*!/,

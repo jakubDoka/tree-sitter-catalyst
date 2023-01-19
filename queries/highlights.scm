@@ -27,7 +27,17 @@
 )
 
 (
-  (path (name) @namespace tail: _)
+  (spec_expr (path (name) @type))
+  (#match? @type "[A-Z][a-z0-9]*")
+)
+
+(
+  (spec_expr (path start: (name) @type.builtin !tail))
+  (#match? @type.builtin "[a-z_][a-z_0-9]*")
+)
+
+(
+  (path (name) @namespace tail: (name))
   (#match? @namespace "[a-z_][a-z_0-9]*")
 )
 
@@ -77,6 +87,7 @@
   "struct"
   "spec"
   "use"
+  "mut"
 ] @keyword
 
 [
