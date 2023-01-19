@@ -1,15 +1,15 @@
 (
-  (path (name) @type)
+  (type (path (name) @type))
   (#match? @type "[A-Z][a-z0-9]*")
 )
 
 (
-  (path start: (name) @type.builtin !tail)
+  (type (path start: (name) @type.builtin !tail))
   (#match? @type.builtin "[a-z_][a-z_0-9]*")
 )
 
 (
-  (path (name) @namespace)
+  (path (name) @namespace tail: _)
   (#match? @namespace "[a-z_][a-z_0-9]*")
 )
 

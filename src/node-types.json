@@ -48,6 +48,10 @@
           "named": true
         },
         {
+          "type": "match",
+          "named": true
+        },
+        {
           "type": "new_line",
           "named": true
         },
@@ -119,6 +123,10 @@
           "named": true
         },
         {
+          "type": "match",
+          "named": true
+        },
+        {
           "type": "op",
           "named": true
         },
@@ -187,6 +195,10 @@
         },
         {
           "type": "loop",
+          "named": true
+        },
+        {
+          "type": "match",
           "named": true
         },
         {
@@ -268,6 +280,10 @@
           "named": true
         },
         {
+          "type": "match",
+          "named": true
+        },
+        {
           "type": "new_line",
           "named": true
         },
@@ -336,6 +352,10 @@
         },
         {
           "type": "loop",
+          "named": true
+        },
+        {
+          "type": "match",
           "named": true
         },
         {
@@ -505,6 +525,10 @@
           "named": true
         },
         {
+          "type": "match",
+          "named": true
+        },
+        {
           "type": "op",
           "named": true
         },
@@ -619,6 +643,10 @@
         },
         {
           "type": "loop",
+          "named": true
+        },
+        {
+          "type": "match",
           "named": true
         },
         {
@@ -785,6 +813,10 @@
           "named": true
         },
         {
+          "type": "match",
+          "named": true
+        },
+        {
           "type": "op",
           "named": true
         },
@@ -860,6 +892,10 @@
           "named": true
         },
         {
+          "type": "match",
+          "named": true
+        },
+        {
           "type": "op",
           "named": true
         },
@@ -873,6 +909,104 @@
         },
         {
           "type": "str",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "match",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "bool",
+          "named": true
+        },
+        {
+          "type": "break_",
+          "named": true
+        },
+        {
+          "type": "call",
+          "named": true
+        },
+        {
+          "type": "char",
+          "named": true
+        },
+        {
+          "type": "continue_",
+          "named": true
+        },
+        {
+          "type": "if_",
+          "named": true
+        },
+        {
+          "type": "int",
+          "named": true
+        },
+        {
+          "type": "let_",
+          "named": true
+        },
+        {
+          "type": "loop",
+          "named": true
+        },
+        {
+          "type": "match",
+          "named": true
+        },
+        {
+          "type": "match_arm",
+          "named": true
+        },
+        {
+          "type": "new_line",
+          "named": true
+        },
+        {
+          "type": "op",
+          "named": true
+        },
+        {
+          "type": "path",
+          "named": true
+        },
+        {
+          "type": "return",
+          "named": true
+        },
+        {
+          "type": "str",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "match_arm",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "branch",
+          "named": true
+        },
+        {
+          "type": "pat",
           "named": true
         }
       ]
@@ -929,6 +1063,10 @@
         },
         {
           "type": "loop",
+          "named": true
+        },
+        {
+          "type": "match",
           "named": true
         },
         {
@@ -1128,6 +1266,10 @@
         },
         {
           "type": "loop",
+          "named": true
+        },
+        {
+          "type": "match",
           "named": true
         },
         {
@@ -1666,6 +1808,10 @@
   },
   {
     "type": "macro",
+    "named": false
+  },
+  {
+    "type": "match",
     "named": false
   },
   {
