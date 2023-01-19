@@ -170,3 +170,602 @@ fn main {
           (new_line)))
       (new_line)))
   (new_line))
+
+================================================================================
+imports
+================================================================================
+use {
+	"builtin"
+	"./ptr"
+	"./c"
+}
+
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (imports
+    (new_line)
+    (import
+      (str))
+    (new_line)
+    (import
+      (str))
+    (new_line)
+    (import
+      (str))
+    (new_line))
+  (new_line))
+
+================================================================================
+struct
+================================================================================
+
+pub struct [T] Vec {
+	mut ptr: ^mut T
+	mut len: uint
+	mut cap: uint
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (new_line)
+  (struct
+    (vis)
+    (generics
+      (generic_param
+        (name)))
+    (name)
+    (new_line)
+    (struct_field
+      (name)
+      (type
+        (ptr
+          (type
+            (path
+              (name))))))
+    (new_line)
+    (struct_field
+      (name)
+      (type
+        (path
+          (name))))
+    (new_line)
+    (struct_field
+      (name)
+      (type
+        (path
+          (name))))
+    (new_line))
+  (new_line))
+
+================================================================================
+impl
+================================================================================
+
+pub impl [T] Vec\[T] {
+	fn new() -> Self {
+		\{ptr: cast(0), len: 0, cap: 0}
+	}
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (new_line)
+  (impl
+    (vis)
+    (generics
+      (generic_param
+        (name)))
+    (type
+      (path
+        (name)
+        (type
+          (path
+            (name)))))
+    (new_line)
+    (fn
+      (sig
+        (name)
+        (sig_args)
+        (type
+          (path
+            (name))))
+      (block
+        (new_line)
+        (struct_ctor
+          (struct_ctor_field
+            (name)
+            (call
+              (path
+                (name))
+              (int)))
+          (struct_ctor_field
+            (name)
+            (int))
+          (struct_ctor_field
+            (name)
+            (int)))
+        (new_line)))
+    (new_line))
+  (new_line))
+
+================================================================================
+consturctor
+================================================================================
+
+fn with_capacity(cap: uint) -> Self {
+	\{ptr: cast(c\malloc(cap * sizeof\[T]())), len: 0, cap}
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (new_line)
+  (fn
+    (sig
+      (name)
+      (sig_args
+        (sig_arg
+          (pat
+            (name))
+          (type
+            (path
+              (name)))))
+      (type
+        (path
+          (name))))
+    (block
+      (new_line)
+      (struct_ctor
+        (struct_ctor_field
+          (name)
+          (call
+            (path
+              (name))
+            (call
+              (path
+                (name)
+                (name))
+              (op
+                (path
+                  (name))
+                (call
+                  (path
+                    (name)
+                    (type
+                      (path
+                        (name)))))))))
+        (struct_ctor_field
+          (name)
+          (int))
+        (struct_ctor_field
+          (name)))
+      (new_line)))
+  (new_line))
+
+================================================================================
+if statement
+================================================================================
+
+fn push(self: ^mut Self, val: T) {
+	if self.len == self.cap {
+		self.grow()
+	}
+	ptr\write(self.get_mut_ptr(self.len), val)
+	self.len = self.len + 1
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (new_line)
+  (fn
+    (sig
+      (name)
+      (sig_args
+        (sig_arg
+          (pat
+            (name))
+          (type
+            (ptr
+              (type
+                (path
+                  (name))))))
+        (sig_arg
+          (pat
+            (name))
+          (type
+            (path
+              (name))))))
+    (block
+      (new_line)
+      (if_
+        (op
+          (dot_expr
+            (path
+              (name))
+            (path
+              (name)))
+          (dot_expr
+            (path
+              (name))
+            (path
+              (name))))
+        (branch
+          (block
+            (new_line)
+            (call
+              (path
+                (name))
+              (path
+                (name)))
+            (new_line))))
+      (new_line)
+      (call
+        (path
+          (name)
+          (name))
+        (call
+          (path
+            (name))
+          (path
+            (name))
+          (dot_expr
+            (path
+              (name))
+            (path
+              (name))))
+        (path
+          (name)))
+      (new_line)
+      (op
+        (op
+          (dot_expr
+            (path
+              (name))
+            (path
+              (name)))
+          (dot_expr
+            (path
+              (name))
+            (path
+              (name))))
+        (int))
+      (new_line)))
+  (new_line))
+
+================================================================================
+binary op
+================================================================================
+
+fn grow(self: ^mut Self) {
+	let cap = if self.cap == 0 => 8
+	else => self.cap * 2
+	self.cap = cap
+	self.ptr = cast(realloc(cast(self.ptr), self.cap * sizeof\[T]()))
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (new_line)
+  (fn
+    (sig
+      (name)
+      (sig_args
+        (sig_arg
+          (pat
+            (name))
+          (type
+            (ptr
+              (type
+                (path
+                  (name))))))))
+    (block
+      (new_line)
+      (let_
+        (pat
+          (name))
+        (if_
+          (op
+            (dot_expr
+              (path
+                (name))
+              (path
+                (name)))
+            (int))
+          (branch
+            (int))))
+      (new_line)
+      (if_
+        (branch
+          (op
+            (dot_expr
+              (path
+                (name))
+              (path
+                (name)))
+            (int))))
+      (new_line)
+      (op
+        (dot_expr
+          (path
+            (name))
+          (path
+            (name)))
+        (path
+          (name)))
+      (new_line)
+      (op
+        (dot_expr
+          (path
+            (name))
+          (path
+            (name)))
+        (call
+          (path
+            (name))
+          (call
+            (path
+              (name))
+            (call
+              (path
+                (name))
+              (dot_expr
+                (path
+                  (name))
+                (path
+                  (name))))
+            (op
+              (dot_expr
+                (path
+                  (name))
+                (path
+                  (name)))
+              (call
+                (path
+                  (name)
+                  (type
+                    (path
+                      (name)))))))))
+      (new_line)))
+  (new_line))
+
+================================================================================
+generic function
+================================================================================
+
+fn get_ptr(self: ^Self, index: uint) -> ^T {
+	cast(cast\[^mut T, uint](self.ptr) + index * sizeof\[T]())
+}
+
+fn get_mut_ptr(self: ^mut Self, index: uint) -> ^mut T {
+	cast(cast\[^mut T, uint](self.ptr) + index * sizeof\[T]())
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (new_line)
+  (fn
+    (sig
+      (name)
+      (sig_args
+        (sig_arg
+          (pat
+            (name))
+          (type
+            (ptr
+              (type
+                (path
+                  (name))))))
+        (sig_arg
+          (pat
+            (name))
+          (type
+            (path
+              (name)))))
+      (type
+        (ptr
+          (type
+            (path
+              (name))))))
+    (block
+      (new_line)
+      (call
+        (path
+          (name))
+        (op
+          (op
+            (call
+              (path
+                (name)
+                (type
+                  (ptr
+                    (type
+                      (path
+                        (name)))))
+                (type
+                  (path
+                    (name))))
+              (dot_expr
+                (path
+                  (name))
+                (path
+                  (name))))
+            (path
+              (name)))
+          (call
+            (path
+              (name)
+              (type
+                (path
+                  (name)))))))
+      (new_line)))
+  (new_line)
+  (fn
+    (sig
+      (name)
+      (sig_args
+        (sig_arg
+          (pat
+            (name))
+          (type
+            (ptr
+              (type
+                (path
+                  (name))))))
+        (sig_arg
+          (pat
+            (name))
+          (type
+            (path
+              (name)))))
+      (type
+        (ptr
+          (type
+            (path
+              (name))))))
+    (block
+      (new_line)
+      (call
+        (path
+          (name))
+        (op
+          (op
+            (call
+              (path
+                (name)
+                (type
+                  (ptr
+                    (type
+                      (path
+                        (name)))))
+                (type
+                  (path
+                    (name))))
+              (dot_expr
+                (path
+                  (name))
+                (path
+                  (name))))
+            (path
+              (name)))
+          (call
+            (path
+              (name)
+              (type
+                (path
+                  (name)))))))
+      (new_line)))
+  (new_line))
+
+================================================================================
+trait impl
+================================================================================
+
+impl [T] Drop for Vec\[T] {
+	fn drop(self: ^mut Self) {
+		let mut i = 0
+		loop if i == self.len => break
+		else {
+			ptr\read(self.get_ptr(i))
+			i = i + 1
+		}
+		c\free(cast(self.ptr))
+	}
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (new_line)
+  (impl
+    (generics
+      (generic_param
+        (name)))
+    (path
+      (name))
+    (type
+      (path
+        (name)
+        (type
+          (path
+            (name)))))
+    (new_line)
+    (fn
+      (sig
+        (name)
+        (sig_args
+          (sig_arg
+            (pat
+              (name))
+            (type
+              (ptr
+                (type
+                  (path
+                    (name))))))))
+      (block
+        (new_line)
+        (let_
+          (pat
+            (pat
+              (name)))
+          (int))
+        (new_line)
+        (loop
+          (if_
+            (op
+              (path
+                (name))
+              (dot_expr
+                (path
+                  (name))
+                (path
+                  (name))))
+            (branch
+              (break_))))
+        (new_line)
+        (if_
+          (branch
+            (block
+              (new_line)
+              (call
+                (path
+                  (name)
+                  (name))
+                (call
+                  (path
+                    (name))
+                  (path
+                    (name))
+                  (path
+                    (name))))
+              (new_line)
+              (op
+                (op
+                  (path
+                    (name))
+                  (path
+                    (name)))
+                (int))
+              (new_line))))
+        (new_line)
+        (call
+          (path
+            (name)
+            (name))
+          (call
+            (path
+              (name))
+            (dot_expr
+              (path
+                (name))
+              (path
+                (name)))))
+        (new_line)))
+    (new_line))
+  (new_line))

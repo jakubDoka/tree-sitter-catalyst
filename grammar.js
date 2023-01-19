@@ -23,7 +23,7 @@ module.exports = grammar({
 
     imports: $ => seq('use', list($, $.import, '{', $.new_line, '}')),
     
-    import: $ => seq($.vis, optional($.name), $.str),
+    import: $ => seq(optional($.vis), optional($.name), $.str),
     
     _item: $ => choice(
       $.fn,
@@ -173,7 +173,12 @@ module.exports = grammar({
       $.path,
       $.match,
       $.dot_expr,
+      $.struct_ctor,
     ),
+
+    struct_ctor: $ => seq(optional($.path), "\\", list($, $.struct_ctor_field, "{", ",", "}")),
+
+    struct_ctor_field: $ => seq($.name, optional(seq(":", $._expr))),
 
     dot_expr: $ => seq($._unit_expr, ".", field("name", $.path)),
 
@@ -192,11 +197,11 @@ module.exports = grammar({
 
     break_: $ => prec.right(0, seq("break", optional($.label), optional($._expr))),
 
-    if_: $ => prec.right(0, seq(
-      "if", $._expr, $.branch,
-      repeat(seq(optional($.new_line), "elif", $._expr, $.branch)),
-      optional(seq("else", $._expr, $.branch))
-    )),
+    if_: $ => prec.right(0, repeat1(choice(
+      seq("if", $._expr, $.branch),
+      seq("elif", $._expr, $.branch),
+      seq("else", $.branch),
+    ))),
 
     let_: $ => seq("let", $.pat, optional(seq(":", $.type)), "=", $._expr),
 

@@ -74,6 +74,10 @@
         {
           "type": "str",
           "named": true
+        },
+        {
+          "type": "struct_ctor",
+          "named": true
         }
       ]
     }
@@ -148,6 +152,10 @@
         },
         {
           "type": "str",
+          "named": true
+        },
+        {
+          "type": "struct_ctor",
           "named": true
         }
       ]
@@ -227,6 +235,10 @@
         },
         {
           "type": "str",
+          "named": true
+        },
+        {
+          "type": "struct_ctor",
           "named": true
         }
       ]
@@ -318,6 +330,10 @@
         {
           "type": "str",
           "named": true
+        },
+        {
+          "type": "struct_ctor",
+          "named": true
         }
       ]
     }
@@ -396,6 +412,10 @@
         },
         {
           "type": "str",
+          "named": true
+        },
+        {
+          "type": "struct_ctor",
           "named": true
         },
         {
@@ -497,6 +517,10 @@
         },
         {
           "type": "str",
+          "named": true
+        },
+        {
+          "type": "struct_ctor",
           "named": true
         }
       ]
@@ -655,6 +679,10 @@
           "named": true
         },
         {
+          "type": "struct_ctor",
+          "named": true
+        },
+        {
           "type": "vis",
           "named": true
         }
@@ -760,10 +788,6 @@
           "named": true
         },
         {
-          "type": "new_line",
-          "named": true
-        },
-        {
           "type": "op",
           "named": true
         },
@@ -777,6 +801,10 @@
         },
         {
           "type": "str",
+          "named": true
+        },
+        {
+          "type": "struct_ctor",
           "named": true
         }
       ]
@@ -951,6 +979,10 @@
           "named": true
         },
         {
+          "type": "struct_ctor",
+          "named": true
+        },
+        {
           "type": "type",
           "named": true
         }
@@ -1027,6 +1059,10 @@
         },
         {
           "type": "str",
+          "named": true
+        },
+        {
+          "type": "struct_ctor",
           "named": true
         }
       ]
@@ -1110,6 +1146,10 @@
         },
         {
           "type": "str",
+          "named": true
+        },
+        {
+          "type": "struct_ctor",
           "named": true
         }
       ]
@@ -1209,6 +1249,10 @@
         },
         {
           "type": "str",
+          "named": true
+        },
+        {
+          "type": "struct_ctor",
           "named": true
         }
       ]
@@ -1417,6 +1461,10 @@
         {
           "type": "str",
           "named": true
+        },
+        {
+          "type": "struct_ctor",
+          "named": true
         }
       ]
     }
@@ -1590,6 +1638,112 @@
         },
         {
           "type": "vis",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "struct_ctor",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "new_line",
+          "named": true
+        },
+        {
+          "type": "path",
+          "named": true
+        },
+        {
+          "type": "struct_ctor_field",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "struct_ctor_field",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "bool",
+          "named": true
+        },
+        {
+          "type": "break_",
+          "named": true
+        },
+        {
+          "type": "call",
+          "named": true
+        },
+        {
+          "type": "char",
+          "named": true
+        },
+        {
+          "type": "continue_",
+          "named": true
+        },
+        {
+          "type": "dot_expr",
+          "named": true
+        },
+        {
+          "type": "if_",
+          "named": true
+        },
+        {
+          "type": "int",
+          "named": true
+        },
+        {
+          "type": "let_",
+          "named": true
+        },
+        {
+          "type": "loop",
+          "named": true
+        },
+        {
+          "type": "match",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "op",
+          "named": true
+        },
+        {
+          "type": "path",
+          "named": true
+        },
+        {
+          "type": "return",
+          "named": true
+        },
+        {
+          "type": "str",
+          "named": true
+        },
+        {
+          "type": "struct_ctor",
           "named": true
         }
       ]
