@@ -1,15 +1,15 @@
 (
-  (path (path_seg (name) @type))
+  (path (name) @type)
   (#match? @type "[A-Z][a-z0-9]*")
 )
 
 (
-  (path start: (path_seg (name) @type.builtin) !tail)
+  (path start: (name) @type.builtin !tail)
   (#match? @type.builtin "[a-z_][a-z_0-9]*")
 )
 
 (
-  (path (path_seg (name) @namespace))
+  (path (name) @namespace)
   (#match? @namespace "[a-z_][a-z_0-9]*")
 )
 
@@ -37,31 +37,59 @@
 
 
 ":" @punctuation.delimiter
-; "." @punctuation.delimiter
+"." @punctuation.delimiter
 "," @punctuation.delimiter
 ";" @error ; to discorage the use of them
 
+[
+  "break"
+  "const"
+  "continue"
+  "else"
+  "enum"
+  "extern"
+  "fn"
+  "if"
+  "impl"
+  "let"
+  "loop"
+  "match"
+  "pub"
+  "priv"
+  "return"
+  "struct"
+  "spec"
+  "use"
+] @keyword
 
-"break" @keyword
-; "const" @keyword
-"continue" @keyword
-"else" @keyword
-; "enum" @keyword
-"extern" @keyword
-"fn" @keyword
-"if" @keyword
-; "impl" @keyword
-"let" @keyword
-"loop" @keyword
-; "match" @keyword
-; "mod" @keyword
-"pub" @keyword
-"priv" @keyword
-"return" @keyword
-"struct" @keyword
-; "spec" @keyword
-; "unsafe" @keyword
-"use" @keyword
-
-"*" @operator
-"&" @operator
+[
+  "*"
+  "/"
+  "%"
+  "+"
+  "-"
+  "<<"
+  ">>"
+  "<"
+  ">"
+  "<="
+  ">="
+  "=="
+  "!="
+  "&"
+  "^"
+  "|"
+  "&&"
+  "||"
+  "="
+  "+="
+  "-="
+  "*="
+  "/="
+  "%="
+  "<<="
+  ">>="
+  "&="
+  "^="
+  "|="
+] @operator

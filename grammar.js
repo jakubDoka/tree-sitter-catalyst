@@ -27,7 +27,61 @@ module.exports = grammar({
     
     _item: $ => choice(
       $.fn,
+      $.enum,
+      $.spec,
+      $.struct,
+      $.item_attribute,
+      $.impl,
+      $.const_,
     ),
+
+    const_: $ => seq("const", $.name, optional(seq(":", $.type)), "=", $._expr),
+
+    impl: $ => seq(
+      optional($.vis), "impl", optional($.generics),
+      choice(
+        $.type,
+        seq($.path, "for", $.type),
+      ),
+      list($, $.fn, "{", $.new_line, "}"),
+    ),
+
+    item_attribute: $ => seq("#", "[", $._item_attribute_inner, "]"),
+    
+    _item_attribute_inner: $ => choice(
+      "entry",
+      "water_drop",
+      "compile_time",
+      "no_moves",
+      seq("macro", $.name),
+      seq("inline", optional(seq("(", choice("alwais", "newer"), ")"))),
+    ),
+
+    struct: $ => seq(
+      optional($.vis), "struct", optional($.generics),
+      $.name,
+      optional(list($, $.struct_field, "{", $.new_line, "}")),
+    ),
+
+    struct_field: $ => seq(
+      optional($.vis), optional("use"), optional("mut"),
+      $.name,
+      ":", $.type,
+    ),
+
+    spec: $ => seq(
+      optional($.vis), "spec", optional($.generics),
+      $.name,
+      optional(list($, $.sig, "{", $.new_line, "}")),
+    ),
+
+    enum: $ => seq(
+      optional($.vis), "enum", optional($.generics),
+      $.name,
+      optional(list($, $.enum_variant, "{", $.new_line, "}")),
+    ),
+
+    enum_variant: $ => seq($.name, optional(seq(":", $.type))),
 
     fn: $ => seq(optional($.vis), $.sig, $._fn_body),
 
@@ -89,12 +143,14 @@ module.exports = grammar({
     tuple: $ => list($,$.type, '(', ',', ')'),
 
     path: $ => prec.right(PATH_PREC, seq(
-      field("slash", optional('\\')),
-      field("start", $.path_seg),
-      field("tail", repeat(seq('\\', $.path_seg))),
+      field("start", choice(
+        seq("\\", list($, $.type, "[", ",", "]")),
+        seq(optional("\\"), $.name),
+      )),
+      field("tail", repeat(seq('\\', $._path_seg))),
     )),
 
-    path_seg: $ => choice($.name, list($, $.type, '[', ',', ']')),
+    _path_seg: $ => choice($.name, list($, $.type, '[', ',', ']')),
 
     _expr: $ => choice(
       $.op,
@@ -115,7 +171,12 @@ module.exports = grammar({
       $.char,
       $.block,
       $.path,
+      $.match,
     ),
+
+    match: $ => seq("match", $._expr, list($, $.match_arm, "{", $.new_line, "}")),
+    
+    match_arm: $ => seq($.pat, $.branch),
 
     call: $ => prec.right(1, seq(
       optional(seq($._unit_expr, ".")),

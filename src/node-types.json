@@ -211,10 +211,21 @@
   {
     "type": "call",
     "named": true,
-    "fields": {},
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "path",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "block",
@@ -280,6 +291,81 @@
     }
   },
   {
+    "type": "const_",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "bool",
+          "named": true
+        },
+        {
+          "type": "break_",
+          "named": true
+        },
+        {
+          "type": "call",
+          "named": true
+        },
+        {
+          "type": "char",
+          "named": true
+        },
+        {
+          "type": "continue_",
+          "named": true
+        },
+        {
+          "type": "if_",
+          "named": true
+        },
+        {
+          "type": "int",
+          "named": true
+        },
+        {
+          "type": "let_",
+          "named": true
+        },
+        {
+          "type": "loop",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "op",
+          "named": true
+        },
+        {
+          "type": "path",
+          "named": true
+        },
+        {
+          "type": "return",
+          "named": true
+        },
+        {
+          "type": "str",
+          "named": true
+        },
+        {
+          "type": "type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "continue_",
     "named": true,
     "fields": {},
@@ -289,6 +375,37 @@
       "types": [
         {
           "type": "label",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "enum",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "enum_variant",
+          "named": true
+        },
+        {
+          "type": "generics",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "new_line",
+          "named": true
+        },
+        {
+          "type": "vis",
           "named": true
         }
       ]
@@ -315,6 +432,25 @@
       "types": [
         {
           "type": "pat",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "enum_variant",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "type",
           "named": true
         }
       ]
@@ -509,6 +645,41 @@
     }
   },
   {
+    "type": "impl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "fn",
+          "named": true
+        },
+        {
+          "type": "generics",
+          "named": true
+        },
+        {
+          "type": "new_line",
+          "named": true
+        },
+        {
+          "type": "path",
+          "named": true
+        },
+        {
+          "type": "type",
+          "named": true
+        },
+        {
+          "type": "vis",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "import",
     "named": true,
     "fields": {},
@@ -545,6 +716,21 @@
         },
         {
           "type": "new_line",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "item_attribute",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "name",
           "named": true
         }
       ]
@@ -807,22 +993,36 @@
     "type": "path",
     "named": true,
     "fields": {
-      "slash": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "\\",
-            "named": false
-          }
-        ]
-      },
       "start": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
         "types": [
           {
-            "type": "path_seg",
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "[",
+            "named": false
+          },
+          {
+            "type": "\\",
+            "named": false
+          },
+          {
+            "type": "]",
+            "named": false
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "new_line",
+            "named": true
+          },
+          {
+            "type": "type",
             "named": true
           }
         ]
@@ -832,38 +1032,35 @@
         "required": false,
         "types": [
           {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "[",
+            "named": false
+          },
+          {
             "type": "\\",
             "named": false
           },
           {
-            "type": "path_seg",
+            "type": "]",
+            "named": false
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "new_line",
+            "named": true
+          },
+          {
+            "type": "type",
             "named": true
           }
         ]
       }
-    }
-  },
-  {
-    "type": "path_seg",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "name",
-          "named": true
-        },
-        {
-          "type": "new_line",
-          "named": true
-        },
-        {
-          "type": "type",
-          "named": true
-        }
-      ]
     }
   },
   {
@@ -1026,7 +1223,19 @@
       "required": false,
       "types": [
         {
+          "type": "const_",
+          "named": true
+        },
+        {
+          "type": "enum",
+          "named": true
+        },
+        {
           "type": "fn",
+          "named": true
+        },
+        {
+          "type": "impl",
           "named": true
         },
         {
@@ -1034,7 +1243,104 @@
           "named": true
         },
         {
+          "type": "item_attribute",
+          "named": true
+        },
+        {
           "type": "new_line",
+          "named": true
+        },
+        {
+          "type": "spec",
+          "named": true
+        },
+        {
+          "type": "struct",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "spec",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "generics",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "new_line",
+          "named": true
+        },
+        {
+          "type": "sig",
+          "named": true
+        },
+        {
+          "type": "vis",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "struct",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "generics",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "new_line",
+          "named": true
+        },
+        {
+          "type": "struct_field",
+          "named": true
+        },
+        {
+          "type": "vis",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "struct_field",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "type",
+          "named": true
+        },
+        {
+          "type": "vis",
           "named": true
         }
       ]
@@ -1116,6 +1422,10 @@
   },
   {
     "type": "!=",
+    "named": false
+  },
+  {
+    "type": "#",
     "named": false
   },
   {
@@ -1267,6 +1577,10 @@
     "named": false
   },
   {
+    "type": "alwais",
+    "named": false
+  },
+  {
     "type": "bool",
     "named": true
   },
@@ -1283,6 +1597,14 @@
     "named": true
   },
   {
+    "type": "compile_time",
+    "named": false
+  },
+  {
+    "type": "const",
+    "named": false
+  },
+  {
     "type": "continue",
     "named": false
   },
@@ -1295,6 +1617,14 @@
     "named": false
   },
   {
+    "type": "entry",
+    "named": false
+  },
+  {
+    "type": "enum",
+    "named": false
+  },
+  {
     "type": "extern",
     "named": false
   },
@@ -1303,7 +1633,19 @@
     "named": false
   },
   {
+    "type": "for",
+    "named": false
+  },
+  {
     "type": "if",
+    "named": false
+  },
+  {
+    "type": "impl",
+    "named": false
+  },
+  {
+    "type": "inline",
     "named": false
   },
   {
@@ -1323,6 +1665,10 @@
     "named": false
   },
   {
+    "type": "macro",
+    "named": false
+  },
+  {
     "type": "multi_comment",
     "named": true
   },
@@ -1333,6 +1679,14 @@
   {
     "type": "name",
     "named": true
+  },
+  {
+    "type": "newer",
+    "named": false
+  },
+  {
+    "type": "no_moves",
+    "named": false
   },
   {
     "type": "priv",
@@ -1347,11 +1701,23 @@
     "named": false
   },
   {
+    "type": "spec",
+    "named": false
+  },
+  {
     "type": "str",
     "named": true
   },
   {
+    "type": "struct",
+    "named": false
+  },
+  {
     "type": "use",
+    "named": false
+  },
+  {
+    "type": "water_drop",
     "named": false
   },
   {

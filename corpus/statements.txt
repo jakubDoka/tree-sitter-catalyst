@@ -19,19 +19,16 @@ fn main(a: usize) -> usize {
             (name))
           (type
             (path
-              (path_seg
-                (name))))))
+              (name)))))
       (type
         (path
-          (path_seg
-            (name)))))
+          (name))))
     (block
       (new_line)
       (return
         (op
           (path
-            (path_seg
-              (name)))
+            (name))
           (int)))
       (new_line)))
   (new_line))
@@ -57,14 +54,11 @@ fn something(a: Namespace\Type) -> builtin {
             (name))
           (type
             (path
-              (path_seg
-                (name))
-              (path_seg
-                (name))))))
+              (name)
+              (name)))))
       (type
         (path
-          (path_seg
-            (name)))))
+          (name))))
     (block
       (new_line)
       (return)
@@ -97,10 +91,8 @@ fn something(\{ a: \Some~f, b, .. }: namespace\Type) extern
               (name)))
           (type
             (path
-              (path_seg
-                (name))
-              (path_seg
-                (name))))))))
+              (name)
+              (name)))))))
   (new_line))
 
 ================================================================================
@@ -126,27 +118,20 @@ fn func() {
           (name))
         (call
           (path
-            (path_seg
-              (name)))
+            (name))
           (path
-            (path_seg
-              (name)))
+            (name))
           (path
-            (path_seg
-              (name)))
+            (name))
           (path
-            (path_seg
-              (name)))
+            (name))
           (call
             (path
-              (path_seg
-                (name)))
+              (name))
             (path
-              (path_seg
-                (name)))
+              (name))
             (path
-              (path_seg
-                (name))))))
+              (name)))))
       (new_line)))
   (new_line))
 
