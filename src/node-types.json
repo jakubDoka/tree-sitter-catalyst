@@ -1,5 +1,85 @@
 [
   {
+    "type": "arrow_block",
+    "named": true,
+    "fields": {
+      "expr": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "block",
+            "named": true
+          },
+          {
+            "type": "bool",
+            "named": true
+          },
+          {
+            "type": "break_",
+            "named": true
+          },
+          {
+            "type": "call",
+            "named": true
+          },
+          {
+            "type": "char",
+            "named": true
+          },
+          {
+            "type": "continue_",
+            "named": true
+          },
+          {
+            "type": "dot_expr",
+            "named": true
+          },
+          {
+            "type": "if_",
+            "named": true
+          },
+          {
+            "type": "int",
+            "named": true
+          },
+          {
+            "type": "let_",
+            "named": true
+          },
+          {
+            "type": "loop",
+            "named": true
+          },
+          {
+            "type": "match",
+            "named": true
+          },
+          {
+            "type": "op",
+            "named": true
+          },
+          {
+            "type": "path",
+            "named": true
+          },
+          {
+            "type": "return",
+            "named": true
+          },
+          {
+            "type": "str",
+            "named": true
+          },
+          {
+            "type": "struct_ctor",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "block",
     "named": true,
     "fields": {},
@@ -91,71 +171,11 @@
       "required": true,
       "types": [
         {
+          "type": "arrow_block",
+          "named": true
+        },
+        {
           "type": "block",
-          "named": true
-        },
-        {
-          "type": "bool",
-          "named": true
-        },
-        {
-          "type": "break_",
-          "named": true
-        },
-        {
-          "type": "call",
-          "named": true
-        },
-        {
-          "type": "char",
-          "named": true
-        },
-        {
-          "type": "continue_",
-          "named": true
-        },
-        {
-          "type": "dot_expr",
-          "named": true
-        },
-        {
-          "type": "if_",
-          "named": true
-        },
-        {
-          "type": "int",
-          "named": true
-        },
-        {
-          "type": "let_",
-          "named": true
-        },
-        {
-          "type": "loop",
-          "named": true
-        },
-        {
-          "type": "match",
-          "named": true
-        },
-        {
-          "type": "op",
-          "named": true
-        },
-        {
-          "type": "path",
-          "named": true
-        },
-        {
-          "type": "return",
-          "named": true
-        },
-        {
-          "type": "str",
-          "named": true
-        },
-        {
-          "type": "struct_ctor",
           "named": true
         }
       ]
@@ -535,7 +555,7 @@
       "required": true,
       "types": [
         {
-          "type": "enum_variant",
+          "type": "enum_body",
           "named": true
         },
         {
@@ -547,11 +567,26 @@
           "named": true
         },
         {
-          "type": "new_line",
+          "type": "vis",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "enum_body",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "enum_variant",
           "named": true
         },
         {
-          "type": "vis",
+          "type": "new_line",
           "named": true
         }
       ]
@@ -611,75 +646,15 @@
       "required": true,
       "types": [
         {
+          "type": "arrow_block",
+          "named": true
+        },
+        {
           "type": "block",
           "named": true
         },
         {
-          "type": "bool",
-          "named": true
-        },
-        {
-          "type": "break_",
-          "named": true
-        },
-        {
-          "type": "call",
-          "named": true
-        },
-        {
-          "type": "char",
-          "named": true
-        },
-        {
-          "type": "continue_",
-          "named": true
-        },
-        {
-          "type": "dot_expr",
-          "named": true
-        },
-        {
-          "type": "if_",
-          "named": true
-        },
-        {
-          "type": "int",
-          "named": true
-        },
-        {
-          "type": "let_",
-          "named": true
-        },
-        {
-          "type": "loop",
-          "named": true
-        },
-        {
-          "type": "match",
-          "named": true
-        },
-        {
-          "type": "op",
-          "named": true
-        },
-        {
-          "type": "path",
-          "named": true
-        },
-        {
-          "type": "return",
-          "named": true
-        },
-        {
           "type": "sig",
-          "named": true
-        },
-        {
-          "type": "str",
-          "named": true
-        },
-        {
-          "type": "struct_ctor",
           "named": true
         },
         {
@@ -1598,15 +1573,30 @@
           "named": true
         },
         {
+          "type": "spec_body",
+          "named": true
+        },
+        {
+          "type": "vis",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "spec_body",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
           "type": "new_line",
           "named": true
         },
         {
           "type": "sig",
-          "named": true
-        },
-        {
-          "type": "vis",
           "named": true
         }
       ]
@@ -1644,15 +1634,30 @@
           "named": true
         },
         {
+          "type": "struct_body",
+          "named": true
+        },
+        {
+          "type": "vis",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "struct_body",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
           "type": "new_line",
           "named": true
         },
         {
           "type": "struct_field",
-          "named": true
-        },
-        {
-          "type": "vis",
           "named": true
         }
       ]

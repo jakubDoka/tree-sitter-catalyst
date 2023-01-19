@@ -60,8 +60,10 @@ module.exports = grammar({
     struct: $ => seq(
       optional($.vis), "struct", optional($.generics),
       $.name,
-      optional(list($, $.struct_field, "{", $.new_line, "}")),
+      optional($.struct_body),
     ),
+
+    struct_body: $ => list($, $.struct_field, "{", $.new_line, "}"),
 
     struct_field: $ => seq(
       optional($.vis), optional("use"), optional("mut"),
@@ -72,14 +74,18 @@ module.exports = grammar({
     spec: $ => seq(
       optional($.vis), "spec", optional($.generics),
       $.name,
-      optional(list($, $.sig, "{", $.new_line, "}")),
+      optional($.spec_body),
     ),
+
+    spec_body: $ => list($, $.sig, "{", $.new_line, "}"),
 
     enum: $ => seq(
       optional($.vis), "enum", optional($.generics),
       $.name,
-      optional(list($, $.enum_variant, "{", $.new_line, "}")),
+      optional($.enum_body),
     ),
+
+    enum_body: $ => list($, $.enum_variant, "{", $.new_line, "}"),
 
     enum_variant: $ => seq($.name, optional(seq(":", $.type))),
 
@@ -122,10 +128,12 @@ module.exports = grammar({
     enum_pat: $ => seq('\\', field("tag", $.name), optional(seq('~', $.pat))),
 
     _fn_body: $ => choice(
-      seq('=>', $._expr),
+      $.arrow_block,
       $.block,
       'extern',
     ),
+
+    arrow_block: $ => seq("=>", field("expr", $._expr)),
 
     type: $ => choice(
       $.path,
@@ -208,7 +216,7 @@ module.exports = grammar({
     let_: $ => seq("let", $.pat, optional(seq(":", $.type)), "=", $._expr),
 
     branch: $ => choice(
-      seq("=>", $._expr),
+      $.arrow_block,
       $.block,
     ),
 
@@ -223,7 +231,7 @@ module.exports = grammar({
     label: $ => /'[a-zA-Z0-9_]+/,
     name: $ => /[a-zA-Z_][a-zA-Z0-9_]*/,
     marcro: $ => /[a-zA-Z_][a-zA-Z0-9_]*!/,
-    int: $ => /[0-9]+((u)(32)|uint)?/,
+    int: $ => /[0-9]+((u)(64|32|16|8)|uint)?/,
     str: $ => /"(\\"|[^"])*"/,
     bool: $ => /(true|false)/,
     char: $ => /'(.|\\(n|r|t|\\|'))'/,

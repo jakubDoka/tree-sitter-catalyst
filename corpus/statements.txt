@@ -217,27 +217,28 @@ pub struct [T] Vec {
       (generic_param
         (name)))
     (name)
-    (new_line)
-    (struct_field
-      (name)
-      (type
-        (ptr
-          (type
-            (path
-              (name))))))
-    (new_line)
-    (struct_field
-      (name)
-      (type
-        (path
-          (name))))
-    (new_line)
-    (struct_field
-      (name)
-      (type
-        (path
-          (name))))
-    (new_line))
+    (struct_body
+      (new_line)
+      (struct_field
+        (name)
+        (type
+          (ptr
+            (type
+              (path
+                (name))))))
+      (new_line)
+      (struct_field
+        (name)
+        (type
+          (path
+            (name))))
+      (new_line)
+      (struct_field
+        (name)
+        (type
+          (path
+            (name))))
+      (new_line)))
   (new_line))
 
 ================================================================================
@@ -478,17 +479,19 @@ fn grow(self: ^mut Self) {
                 (name)))
             (int))
           (branch
-            (int))))
+            (arrow_block
+              (int)))))
       (new_line)
       (if_
         (branch
-          (op
-            (dot_expr
-              (path
-                (name))
-              (path
-                (name)))
-            (int))))
+          (arrow_block
+            (op
+              (dot_expr
+                (path
+                  (name))
+                (path
+                  (name)))
+              (int)))))
       (new_line)
       (op
         (dot_expr
@@ -728,7 +731,8 @@ impl [T] Drop for Vec\[T] {
                 (path
                   (name))))
             (branch
-              (break_))))
+              (arrow_block
+                (break_)))))
         (new_line)
         (if_
           (branch

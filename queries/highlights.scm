@@ -16,6 +16,8 @@
 (struct (name) @type)
 (sig (name) @function)
 
+(generic_param (name) @type)
+
 (
   (type (path (name) @type))
   (#match? @type "[A-Z][a-z0-9]*")
